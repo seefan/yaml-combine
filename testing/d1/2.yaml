@@ -1,0 +1,6 @@
+server:
+  port: 8089
+  channel:
+    name: hello
+client:
+  timeout: 5s

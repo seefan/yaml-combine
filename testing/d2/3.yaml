@@ -1,0 +1,4 @@
+server:
+  channel:
+    key: hello key
+    name: hello world
