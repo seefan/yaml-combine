@@ -29,6 +29,8 @@ func TestCombineFile(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+// 测试合并目录
 func TestCombineDir(t *testing.T) {
 	yc := new(combine.YamlCombine)
 	err := yc.CombineDir("d1")
@@ -43,4 +45,5 @@ func TestCombineDir(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
 }

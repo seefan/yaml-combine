@@ -10,13 +10,13 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// yaml 合并
 type YamlCombine struct {
 	yaml map[string]interface{}
 }
 
 // 合并多个yaml文件
 // files: 需要合并的yaml文件
-// 返回合并后的yaml内容
 func (c *YamlCombine) CombineFile(files ...string) error {
 	if c.yaml == nil {
 		c.yaml = make(map[string]interface{})
@@ -77,6 +77,7 @@ func merge(dst, src map[string]interface{}) map[string]interface{} {
 	return dst
 }
 
+// 保存配置到文件
 func (c *YamlCombine) Save(fileName string) error {
 	bs, err := c.Bytes()
 	if err != nil {
@@ -85,6 +86,7 @@ func (c *YamlCombine) Save(fileName string) error {
 	return os.WriteFile(fileName, bs, 0644)
 }
 
+// 获取yaml文件内容
 func (c *YamlCombine) Bytes() ([]byte, error) {
 	if c.yaml == nil {
 		return nil, errors.New("yaml is nil")
@@ -94,4 +96,16 @@ func (c *YamlCombine) Bytes() ([]byte, error) {
 		return nil, err
 	}
 	return bs, err
+}
+
+// 反序列化yaml到指定结构体
+func (c *YamlCombine) Unmarshal(cy interface{}) error {
+	bs, err := c.Bytes()
+	if err != nil {
+		return err
+	}
+	if err := yaml.Unmarshal(bs, cy); err != nil {
+		return err
+	}
+	return nil
 }
