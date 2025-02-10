@@ -1,4 +1,4 @@
-module seefan/yaml-combine
+module github.com/seefan/yaml-combine
 
 go 1.22.3
 

@@ -1,8 +1,9 @@
 package testing_test
 
 import (
-	"seefan/yaml-combine/combine"
 	"testing"
+
+	"github.com/seefan/yaml-combine/combine"
 )
 
 func TestCombineBytes(t *testing.T) {

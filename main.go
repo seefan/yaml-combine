@@ -2,7 +2,8 @@ package main
 
 import (
 	"flag"
-	"seefan/yaml-combine/combine"
+
+	"github.com/seefan/yaml-combine/combine"
 )
 
 var (
